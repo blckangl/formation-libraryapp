@@ -1,54 +1,45 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@model WebApplication1.Models.Livre;
+﻿@model WebApplication1.Models.Livre;
 @{
-    List<Livre> livres = ViewBag.books;
+	List<Livre> livres = ViewBag.books;
+
+
+}
 }
 
-<h1>List </h1>
+<h1>List <span><a asp-controller="Livre" asp-action="Create"><i class="fas fa-plus-square"></i></a></span> </h1>
 
 <table class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Author</th>
-            <th>Date</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in livres)
-        {
-            <tr>
-                <td>@item.Id</td>
-                <td>@item.Name</td>
-                <td>@item.Description</td>
-                <td>@item.Author</td>
-                <td>@item.DateDeCreation</td>
-                <td><a href="livre/@item.Id" class="btn btn-outline-primary">Details</a></td>
-            </tr>
-        }
-    </tbody>
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Author</th>
+			<th>Date</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in livres)
+		{
+			<tr>
+				<td>@item.Id</td>
+				<td>@item.Name</td>
+				<td>@item.Description</td>
+				<td>@item.Author</td>
+				<td>@item.DateDeCreation</td>
+				<td>
+					<a href="livre/@item.Id" class="btn btn-outline-primary">Details</a>
+					<button onclick="deleteBook(@item.Id)" class="btn btn-outline-danger">Remove</button>
+
+				</td>
+			</tr>
+		}
+	</tbody>
 </table>
 
-@using (Html.BeginForm("AddBook", "Livre"))
-{
-    <div class="form-group">
-        @Html.LabelFor(m => m.Name)
-        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Description)
-        @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Author)
-        @Html.TextBoxFor(m => m.Author, new { @class = "form-control" })
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
 
-}
 
+<script>
+
+</script>

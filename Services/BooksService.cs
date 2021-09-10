@@ -28,6 +28,13 @@ namespace WebApplication1.Services
             Books.Add(book);
             return book;
         }
+
+        public void RemoveBook(int bookId)
+        {
+            Livre deletedBook = Books.Find((book) => book.Id == bookId);
+
+            Books.Remove(deletedBook);
+        }
         public List<Livre> getBooks()
         {
             return Books;

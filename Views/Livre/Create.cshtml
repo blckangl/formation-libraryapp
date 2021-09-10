@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model WebApplication1.Models.Livre;
+
+@{
+}
+@using (Html.BeginForm("AddBook", "Livre"))
+{
+	<div class="alert alert-danger" role="alert">
+  @Html.ValidationSummary()
+</div>
+
+	<div class="form-group">
+		@Html.LabelFor(m => m.Name)
+		@Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m=>m.Name,"Name is incorrect",new {@class="invalid-feedback"})
+	</div>
+	<div class="form-group">
+		@Html.LabelFor(m => m.Description)
+		@Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m=>m.Description,"Description is incorrect",new {@class="invalid-feedback"})
+
+	</div>
+	<div class="form-group">
+		@Html.LabelFor(m => m.Author)
+		@Html.TextBoxFor(m => m.Author, new { @class = "form-control" })
+     
+
+	</div>
+	<button type="submit" class="btn btn-primary">Submit</button>
+
+}
